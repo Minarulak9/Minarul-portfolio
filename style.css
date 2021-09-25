@@ -260,10 +260,15 @@ header #nav .search .search-active{ /*activating search box */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: italic;
-    font-family: 'Lobster Two', cursive;
+    font-family:  cursive;
     font-size: 1.4rem;
     min-width: 300px;
     padding-right: 30px;
+}
+.head .text p span{
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    color: var(--secondary-color2);
 }
 .head .header-img{
     flex: 1;
