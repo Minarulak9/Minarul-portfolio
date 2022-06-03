@@ -1,6 +1,7 @@
 /* google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Titillium+Web:wght@900&display=swap');
 
 /* overide defoult margin, padding ...*/
 *{
@@ -39,27 +40,12 @@ html{
 }
 /* ======================= */
 
-/* overlay for changing theme */
-
-.overlay{
-    width: 100%;
-    position: fixed;
-    height: 100vh;
-    background-color: #000000d5;
-    z-index: 100;
-    transform: translateY(-100%);
-    transition: none;
-    top: 0;
-}
-.overlay.active{
-    transition: 1.3s ease-out;
-    transform: translateY(100%);
-}
+ 
 body{
-    background: url(./img/myBgN.png) no-repeat 50px bottom;
+    background: url(./img/minarulak2.png) no-repeat 70px bottom;
     background-color: var(--dark-color);
     background-attachment: fixed;
-    background-size: 30%;
+    background-size: 24%;
 }
 .go-top{
     padding:5px 15px;
@@ -100,7 +86,7 @@ header #nav{
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding:0 50px; 
     z-index: 110;
 }
@@ -118,7 +104,7 @@ header #nav ul{
     flex: 1 600 1;
 }
 .links li{
-    margin: 10px 15px;
+    margin: 10px 35px;
     font-family: 'Cinzel', serif;
     list-style: none;
 }
@@ -126,6 +112,26 @@ header #nav ul{
     color: var(--white-color);
     text-decoration: none;
     font-weight: 500;
+    font-size: 1.6rem;
+    position:relative;
+    overflow:hidden;
+}
+.links li a::before{
+    content: "";
+    overflow:hidden;
+    position:absolute;
+    width: 120%;
+    height: 0;
+    background:var(--white-color);
+    z-index:-1;
+    transition:.3s;
+    border-radius: 10px;
+    left: 50%;
+    top: -10%;
+    transform:translate(-50%,0%);
+}
+.links li a:hover::before{
+    height: 120%;
 }
 .links li a:hover{
     color: var(--secondary-color);
@@ -134,93 +140,10 @@ header #nav ul{
     color: var(--secondary-color);
 }
 
-.modes{
-    color: var(--white-color);
-    display: flex;
-    align-items: center;
-}
-.modes input[type="checkbox"]{
-    visibility: hidden;
-}
-.modes .toggler{
-    width: 45px;
-    height: 20px;
-    /* background-color:var(--dark-color); */
-    background-color: var(--white-color);
-    border-radius: 25px;
-    position: relative;
-    padding: 4px;
-    cursor: pointer;
-    transition: .4s;
-}
-.toggler:hover{
-    opacity: .8;
-}
-.toggler .ball{
-    width: 40%;
-    height: 65%;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    transition: .4s;
-    position: absolute;
-}
-.ball.active{
-    transform: translateX(100%);
-}
-
-header #nav .search{
-    flex: 1;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-}
-header #nav .search .search-box{
-    width: 70%;
-    margin-left: auto;
-    position: relative;
-
-}
-header #nav .search input{
-    width: 0;
-    transition: all .5s;
-    float: right;
-    border: none;   
-    outline: none;
-    border-radius: 8px;
-    color: var(--white-color);
-    background-color: #fff3dd57;
-    padding: 5px 0;
-}
-.search i{
-    margin-left:10px;
-    font-size: 1.3rem;
-    color: var(--secondary-color);
-    cursor: pointer;
-    transition: all .5s;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translate(0,-50%);
-}
-.hide{
-    display: none;/* hiding icon */
-}
-.search input::placeholder{
-    font-family:'Cinzel', serif;
-    color: rgb(255, 181, 44);
-    letter-spacing: 8px;
-}
-header #nav .search .search-active{ /*activating search box */
-    width: 80%;
-    padding: 5px 8px;
-    font-size: 1rem;
-    margin-left: auto;
-    box-shadow: 0px 0px 10px -2px rgba(185, 185, 185, 0.678) ;
-}
 .head{
     display: flex;
     position: relative;
-    gap: 100px;
+    gap: 10px;
     align-items: center;
     height: 90vh;
     overflow: hidden;
@@ -228,7 +151,7 @@ header #nav .search .search-active{ /*activating search box */
 .head .text{
     height: 100%;
     padding: 100px 10px;
-    flex: 1;
+    flex: 5;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -245,7 +168,7 @@ header #nav .search .search-active{ /*activating search box */
     }
 }
 .head .text h2{
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     letter-spacing: 10px;
     background:-webkit-linear-gradient(0deg, var(--secondary-color), var(--white-color));
@@ -260,8 +183,9 @@ header #nav .search .search-active{ /*activating search box */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: italic;
-    font-family:  cursive;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
+    line-height:1.5;
     min-width: 300px;
     padding-right: 30px;
 }
@@ -271,7 +195,7 @@ header #nav .search .search-active{ /*activating search box */
     color: var(--secondary-color2);
 }
 .head .header-img{
-    flex: 1;
+    flex: 3;
     height: 100%;
     position: relative;
 }
@@ -296,7 +220,8 @@ header #nav .search .search-active{ /*activating search box */
     text-align: center;
 }
 .btn-about:hover{
-    background: gray;
+    background: var(--white-color);
+    color: var(--secondary-color)
 }
 .social{
     margin-top: 25px;
@@ -399,7 +324,7 @@ header #nav .search .search-active{ /*activating search box */
 
 /* About me ==================*/
 #about-me{
-    height: 100vh;
+    height: 700px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.603);
     padding: 20px;
@@ -415,7 +340,7 @@ header #nav .search .search-active{ /*activating search box */
     width: fit-content;
     border-bottom: 3px solid var(--secondary-color);
     margin: auto;
-    width: 350px;
+    min-width: 350px;
     text-align: center;
 }
 
@@ -603,7 +528,7 @@ header #nav .search .search-active{ /*activating search box */
     padding: 10px 0;
     width: 100%;
 }
-#contact{
+#resume{
     width: 100%;
     min-height: 80vh;
     background-color: var(--dark-color);
@@ -611,7 +536,7 @@ header #nav .search .search-active{ /*activating search box */
     position: relative;
     z-index: 10;
 }
-#contact::before{
+#resume::before{
     content:"";
     position: absolute;
     top: 0;
@@ -622,69 +547,22 @@ header #nav .search .search-active{ /*activating search box */
     z-index: -100;
     opacity: .7;
 }
-.contact-form{
-    max-width:800px;
-    margin-top:50px;
-    margin-left: auto;
-    padding:30px;
-    border-radius: 40px;
-    border-left: 5px solid var(--secondary-color);
-    color: var(--dark-color);
-    position: relative;
-}
-.contact-form h1{
-    font-size: 2rem;
-}
-.form-error{
-    font-size: 1.8rem;
-    padding: 10px;
-    color: var(--white-color);
-    background: var(--secondary-color2);
-    position: fixed;
-    transform: translateX(-50%);
-    top:70px;
-    left: 50%;
-    z-index: 120;
-    border-radius: 10px;
-    transition: .5s;
-}
-.contact-form > div{
-    margin: 30px;
-    display: flex;
-    flex-direction: column;
-}
-.contact-form > div > input{
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    padding: 5px 10px;
-    font-size: 1rem;
-    box-shadow: 0 0 15px -5px;
-}
-.contact-form > div > textarea{
+.resume{
     width: 100%;
-    height: 200px;
+    display:flex;
+    justify-content:center;
+    padding: 10px;
 }
-.contact-form label{
-    color:var(--white-color);
-    font-size: 1.2rem;
+.resume.resume_img{
+    overflow:hidden;
+    
 }
-.contact-form > input[type='submit']{
-    border: none;
-    outline: none;
-    padding: 15px 40px;
-    display: block;
-    margin: auto;
-    font-size: 1.2rem;
-    border-radius: 8px;
-}
-.contact-form > input[type='submit']:hover{
-    opacity: .8;
-    cursor: pointer;
-}
-.contact-form textarea{
-    padding:5px 10px;
-    font-size: 1.2rem;
+.resume_img img{
+    border-radius: 15px;
+    width:500px;
+    border:5px solid var(--secondary-color);
+    
+    
 }
 /* footer */
 footer{

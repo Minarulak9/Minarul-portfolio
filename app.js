@@ -1,7 +1,4 @@
 //selectors 
-const btnSearch = document.querySelector('.search .fa-search');
-const btnCross = document.querySelector('.search .fa-times');
-const inputSearch = document.querySelector('.search .search-input');
 const headerImg = document.querySelector('header .header-img');
 const header = document.querySelector('header');
 const nav = document.querySelector('#nav');
@@ -11,10 +8,6 @@ const mobileNavLines = document.querySelector('.lines');
 const sectionUser = document.querySelector('#User');
 const userBox = document.querySelector('.box');
 const contactUs = document.querySelector('#contact');
-
-const modeToggler = document.querySelector(".toggler");
-const togglerBall = document.querySelector(".ball");;
-const togglerCheck = document.querySelector('.modes>input[type="checkbox"]');
 
 const firstName = document.querySelector('#firstName');
 const lastName = document.querySelector('#lastName');
@@ -32,28 +25,12 @@ const subLeftArrow = document.querySelector('.sub-left-btn');
 const schoolImg = document.querySelector('.school-img');
 const btnTop = document.querySelector('.go-top');
 
-const contactForm = document.querySelector('.contact-form');
-const inputs = contactForm.querySelectorAll('input');
-const query = document.querySelector('.contact-form textarea');
 
 const pages = document.querySelectorAll('.page');
 
 btnTop.addEventListener('click',(e)=>{
     header.scrollIntoView()
     e.target.classList.remove('go-top-active')
-})
-
-btnSearch.addEventListener('click',()=>{
-    inputSearch.focus()
-    inputSearch.classList.add('search-active')
-    btnCross.classList.toggle('hide')
-    btnSearch.classList.toggle('hide')
-})
-btnCross.addEventListener('click',()=>{
-    inputSearch.classList.remove('search-active')
-    btnCross.classList.toggle('hide')
-    btnSearch.classList.toggle('hide')
-    inputSearch.value = ''
 })
 
 
@@ -65,43 +42,7 @@ btnSubmit.addEventListener("click",(e)=>{
         firstName.focus()
     }
 })
-/* overlay for changing theme */
 
-modeToggler.addEventListener('click',()=>{
-    document.querySelector(".overlay").classList.add("active")
-    setTimeout(() => {
-        document.querySelector(".overlay").classList.remove("active")
-    }, 1300);
-})
-
-// changing modes 
-togglerCheck.checked = true;
-const changeMode = () =>{
-    let whiteColor = "rgb(238, 238, 238)"
-    let blackColor = "#202124"
-    let secondary1 = "#be0030"
-    let secondary2 = "#ff7a18"
-    let secondary3 = "#1b5cd4"
-    let secondary4 = "#171977"
-    if (togglerCheck.checked) {
-        document.documentElement.style.setProperty("--dark-color",whiteColor)
-        document.documentElement.style.setProperty("--white-color",blackColor)
-        document.documentElement.style.setProperty("--secondary-color",secondary3)
-        document.documentElement.style.setProperty("--secondary-color2",secondary4)
-    }
-    else{
-        document.documentElement.style.setProperty("--dark-color",blackColor)
-        document.documentElement.style.setProperty("--white-color",whiteColor)
-        document.documentElement.style.setProperty("--secondary-color",secondary1)
-        document.documentElement.style.setProperty("--secondary-color2",secondary2)
-    }
-    togglerCheck.checked = !togglerCheck.checked
-}
-modeToggler.addEventListener('click',()=>{
-    changeMode()
-    togglerBall.classList.toggle("active");
-    modeToggler.classList.toggle("active");
-})
 
 // sticky nav
 const stickyNav = (entries)=>{
@@ -227,25 +168,6 @@ mobileNav.addEventListener("click",(e)=>{
     }
 
 })
-// contact us form submiting
-
-inputs[inputs.length-1].addEventListener('click',(e)=>{
-    e.preventDefault()
-    if (inputs[0].value !== '' && inputs[1].value !== '' && inputs[2].value !== '' && query.value !== '') {
-        contactForm.innerHTML=`<h1 style = "text-align:center;color:#2ec32e;">Form submited succesfuly ✔</h1> <br><h1>Hi, ${inputs[0].value} Thankyou for visiting our page. our team will contact you as soon as posible in your email address ${inputs[2].value}😊🤗👋.`
-        contactForm.style.background= `var(--white-color)`
-    }
-    else{
-        let errorbox = document.createElement('h1')
-        errorbox.classList.add('form-error')
-        errorbox.innerHTML= 'Please fill all the mandotery box <span style="color: red;">*</span>'
-        document.body.appendChild(errorbox)
-        setTimeout(() => {
-            document.body.removeChild(errorbox)
-        }, 2000);
-    }
-})
-
 
 // page activation 
 
